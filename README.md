@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# Student-Productivity-Dashboard-Application
-=======
 # Student Productivity Dashboard
 
 A comprehensive MERN stack application for student productivity management featuring task tracking, calendar integration, Pomodoro timer, and note-taking capabilities.
@@ -41,8 +38,8 @@ A comprehensive MERN stack application for student productivity management featu
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
-   cd student-productivity-dashboard
+   git clone https://github.com/Ronakmalam333/Student-Productivity-Dashboard-Application.git
+   cd Student-Productivity-Dashboard-Application
    ```
 
 2. **Install backend dependencies**
@@ -149,4 +146,3 @@ None currently. Please report any bugs in the Issues section.
 ## 📞 Support
 
 For support, please open an issue in the GitHub repository.
->>>>>>> e4c82c6 (Project is on a tip of completion at level 100%...)
