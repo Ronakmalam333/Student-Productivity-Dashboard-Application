@@ -32,6 +32,17 @@ async function connectToDatabase() {
   return connection;
 }
 
+// Connect to database before handling requests
+app.use(async (req, res, next) => {
+  try {
+    await connectToDatabase();
+    next();
+  } catch (error) {
+    console.error('Database connection error:', error);
+    res.status(500).json({ error: 'Database connection failed' });
+  }
+});
+
 // Rate limiting
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
@@ -79,17 +90,6 @@ app.use((err, req, res, next) => {
     success: false,
     message: err.message || "Server Error",
   });
-});
-
-// Connect to database before handling requests
-app.use(async (req, res, next) => {
-  try {
-    await connectToDatabase();
-    next();
-  } catch (error) {
-    console.error('Database connection error:', error);
-    res.status(500).json({ error: 'Database connection failed' });
-  }
 });
 
 module.exports = app;
