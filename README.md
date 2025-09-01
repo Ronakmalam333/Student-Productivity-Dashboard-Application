@@ -86,7 +86,23 @@ A comprehensive MERN stack application for student productivity management featu
 
 ## 🚀 Deployment
 
-### Production Build
+### One-Click Vercel Deployment
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/YOUR_USERNAME/Student-Productivity-Dashboard-Application)
+
+**Quick Setup:**
+1. Click deploy button above
+2. Connect GitHub account
+3. Set environment variables in Vercel:
+   - `MONGO_URI`: MongoDB Atlas connection string
+   - `JWT_SECRET`: Secure secret (32+ characters)
+   - `JWT_REFRESH_SECRET`: Secure refresh secret (32+ characters)
+   - `NODE_ENV`: production
+4. Deploy!
+
+📖 **Detailed Guide**: [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md)
+
+### Manual Production Build
 
 1. **Build frontend**
    ```bash
@@ -100,14 +116,13 @@ A comprehensive MERN stack application for student productivity management featu
    NODE_ENV=production npm start
    ```
 
-### Environment Variables for Production
+### Environment Variables
 
-Ensure these environment variables are set:
-- `NODE_ENV=production`
+**Required:**
 - `MONGO_URI` (MongoDB connection string)
-- `JWT_SECRET` (strong secret key)
-- `JWT_REFRESH_SECRET` (strong refresh secret)
-- `CLIENT_URL` (your domain URL)
+- `JWT_SECRET` (strong secret key, 32+ characters)
+- `JWT_REFRESH_SECRET` (strong refresh secret, 32+ characters)
+- `NODE_ENV=production`
 
 ## 📱 Usage
 
