@@ -10,14 +10,24 @@ A comprehensive MERN stack application for student productivity management featu
 - **Notes & Journal**: Rich text editor for notes and journal entries
 - **User Authentication**: Secure JWT-based authentication system
 - **Responsive Design**: Mobile-friendly Material-UI interface
+- **Dual Frontend**: Choose between React (Vite) or Next.js versions
 
 ## 🛠️ Tech Stack
 
-**Frontend:**
+**Frontend Options:**
+
+*React Version (client/):*
 - React 18 with Vite
 - Material-UI (MUI) for components
 - Redux Toolkit for state management
 - React Router for navigation
+- Formik & Yup for form handling
+
+*Next.js Version (nextjs-client/):*
+- Next.js 14 with App Router
+- Material-UI (MUI) for components
+- Redux Toolkit with RTK Query
+- Next.js routing
 - Formik & Yup for form handling
 
 **Backend:**
@@ -68,39 +78,43 @@ A comprehensive MERN stack application for student productivity management featu
    CLIENT_URL=http://localhost:5173
    ```
 
-5. **Start the application**
+5. **Choose your frontend and start the application**
    
-   Development mode (both frontend and backend):
+   **Option A: React Version (Original)**
    ```bash
    npm run dev
    ```
    
-   Or separately:
+   **Option B: Next.js Version (Recommended)**
+   ```bash
+   npm run dev-nextjs
+   ```
+   
+   Or start components separately:
    ```bash
    # Backend only
    npm run server
    
-   # Frontend only (in client directory)
+   # React frontend (in client directory)
    cd client && npm run dev
+   
+   # Next.js frontend (in nextjs-client directory)
+   cd nextjs-client && npm run dev
    ```
 
 ## 🚀 Deployment
 
-### One-Click Vercel Deployment
+### Deployment Options
+
+**Next.js Version (Recommended):**
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/YOUR_USERNAME/Student-Productivity-Dashboard-Application)
 
-**Quick Setup:**
-1. Click deploy button above
-2. Connect GitHub account
-3. Set environment variables in Vercel:
-   - `MONGO_URI`: MongoDB Atlas connection string
-   - `JWT_SECRET`: Secure secret (32+ characters)
-   - `JWT_REFRESH_SECRET`: Secure refresh secret (32+ characters)
-   - `NODE_ENV`: production
-4. Deploy!
+📖 **Next.js Guide**: [NEXTJS_DEPLOYMENT_GUIDE.md](./NEXTJS_DEPLOYMENT_GUIDE.md)
 
-📖 **Detailed Guide**: [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md)
+**React Version:**
+
+📖 **React Guide**: [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md)
 
 ### Manual Production Build
 
@@ -132,6 +146,23 @@ A comprehensive MERN stack application for student productivity management featu
 4. **Calendar**: Schedule and view events
 5. **Pomodoro**: Start focus sessions and track productivity
 6. **Notes**: Create notes and journal entries
+
+## 🎯 Quick Setup
+
+**For Next.js Version:**
+```bash
+# Windows
+setup-nextjs.bat
+
+# Linux/macOS
+./setup-nextjs.sh
+```
+
+**For React Version:**
+```bash
+# Follow the installation steps above
+npm run dev
+```
 
 ## 🔒 Security Features
 
