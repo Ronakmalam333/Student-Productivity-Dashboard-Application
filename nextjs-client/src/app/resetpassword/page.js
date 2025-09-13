@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useFormik } from 'formik';
@@ -19,7 +19,7 @@ import {
 
 import { useResetPasswordMutation } from '../../lib/api/authApi';
 
-const ResetPassword = () => {
+const ResetPasswordForm = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const token = searchParams.get('token');
@@ -160,6 +160,20 @@ const ResetPassword = () => {
         </Paper>
       </Box>
     </Container>
+  );
+};
+
+const ResetPassword = () => {
+  return (
+    <Suspense fallback={
+      <Container component="main" maxWidth="xs">
+        <Box sx={{ marginTop: 8, display: 'flex', justifyContent: 'center' }}>
+          <CircularProgress />
+        </Box>
+      </Container>
+    }>
+      <ResetPasswordForm />
+    </Suspense>
   );
 };
 

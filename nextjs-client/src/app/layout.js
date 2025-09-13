@@ -1,104 +1,73 @@
-'use client';
-
-import { Provider } from 'react-redux';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
-import store from '../lib/redux/store';
-import ErrorBoundary from '../components/ErrorBoundary';
+import ClientProviders from '../components/ClientProviders';
 import './globals.css';
 
-// Enhanced theme with better colors and typography
-const theme = createTheme({
-  palette: {
-    mode: 'light',
-    primary: {
-      main: '#1976d2',
-      light: '#42a5f5',
-      dark: '#1565c0',
-    },
-    secondary: {
-      main: '#dc004e',
-      light: '#ff5983',
-      dark: '#9a0036',
-    },
-    background: {
-      default: '#fafafa',
-      paper: '#ffffff',
-    },
-    text: {
-      primary: '#212121',
-      secondary: '#757575',
-    },
-    success: {
-      main: '#4caf50',
-    },
-    warning: {
-      main: '#ff9800',
-    },
-    error: {
-      main: '#f44336',
-    },
+export const metadata = {
+  title: 'Student Productivity Dashboard',
+  description: 'A comprehensive productivity application for students featuring task management, calendar integration, Pomodoro timer, and note-taking capabilities.',
+  keywords: 'student productivity, task management, calendar, pomodoro timer, notes, study planner',
+  authors: [{ name: 'Ronak Malam' }],
+  creator: 'Student Productivity Dashboard',
+  publisher: 'Student Productivity Dashboard',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
   },
-  typography: {
-    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-    h1: { fontWeight: 500, fontSize: '2.5rem' },
-    h2: { fontWeight: 500, fontSize: '2rem' },
-    h3: { fontWeight: 500, fontSize: '1.75rem' },
-    h4: { fontWeight: 500, fontSize: '1.5rem' },
-    h5: { fontWeight: 500, fontSize: '1.25rem' },
-    h6: { fontWeight: 500, fontSize: '1rem' },
-    body1: { fontSize: '1rem', lineHeight: 1.6 },
-    body2: { fontSize: '0.875rem', lineHeight: 1.5 },
-  },
-  shape: {
-    borderRadius: 8,
-  },
-  components: {
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          textTransform: 'none',
-          fontWeight: 500,
-        },
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
+  openGraph: {
+    title: 'Student Productivity Dashboard',
+    description: 'Boost your academic productivity with our comprehensive dashboard featuring task management, calendar, Pomodoro timer, and notes.',
+    url: '/',
+    siteName: 'Student Productivity Dashboard',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Student Productivity Dashboard',
       },
-    },
-    MuiPaper: {
-      styleOverrides: {
-        root: {
-          boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-        },
-      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Student Productivity Dashboard',
+    description: 'Boost your academic productivity with our comprehensive dashboard.',
+    images: ['/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
     },
   },
-});
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION,
+  },
+};
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="theme-color" content="#1976d2" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
       <body>
-        <ErrorBoundary>
-          <Provider store={store}>
-            <ThemeProvider theme={theme}>
-              <CssBaseline />
-              <ToastContainer 
-                position="top-right" 
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="light"
-              />
-              {children}
-            </ThemeProvider>
-          </Provider>
-        </ErrorBoundary>
+        <ClientProviders>
+          {children}
+        </ClientProviders>
       </body>
     </html>
   );
